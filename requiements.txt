@@ -1,0 +1,9 @@
+discord.py
+asyncio
+sqlite3
+selenium
+FFmpegPCMAudio
+YoutubeDL
+bs4
+pytz
+sqlite3
