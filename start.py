@@ -21,19 +21,6 @@ async def on_ready():
     await asyncio.sleep(10) 
     print('[+]'+bot.user.name+'으로 접속됨')
 
-    while True:
-        game = discord.Game('#도움말로 닌닌봇의 명령어 표시')
-        await bot.change_presence(status=discord.Status.online, activity=game)
-        await asyncio.sleep(10)
-        game = discord.Game('Roblox Studio에서 개발중')
-        await bot.change_presence(status=discord.Status.online, activity=game)
-        await asyncio.sleep(10)
-
-@bot.command()
-async def 따라하기(ctx, *, text):
-    await ctx.send(embed=discord.Embed(title="따라하기", description=text, color= 0x00ff00))
-
-
 
 @bot.command()
 async def 접속(ctx):
@@ -138,36 +125,5 @@ async def 지금노래(ctx):
         await ctx.send(
             embed=discord.Embed(title="지금노래", description="현재 " + entireText + "을(를) 재생하고 있습니다.", color=0x00ff00))
 
-@bot.command()
-async def 내정보(ctx):
-    date = datetime.datetime.utcfromtimestamp(((int(ctx.author.id) >> 22) + 1420070400000) / 1000)
-    embed = discord.Embed(color=0x00ff00)
-    embed.add_field(name="이름", value=ctx.author, inline=True)
-    embed.add_field(name="서버닉네임", value=ctx.author.display_name, inline=True)
-    embed.add_field(name="가입일", value=str(date.year) + "년" + str(date.month) + "월" + str(date.day) + "일",inline=True)
-    embed.add_field(name="아이디", value=ctx.author.id, inline=True)
-    embed.set_thumbnail(url=ctx.author.avatar_url)
-    await ctx.channel.send(embed=embed)
-
-@bot.command()
-async def 도움말(ctx):
-    await ctx.send(embed = discord.Embed(title='닌닌봇 도움말',description="""
-\n#도움말 -> 닌닌이의 모든 명령어를 볼 수 있습니다.
-\n#접속 -> 닌닌이를 자신이 속한 채널로 부릅니다.
-\n#나가 -> 닌닌이를 자신이 속한 채널에서 내보냅니다.
-\n#링크재생 [노래링크] -> 유튜브URL를 입력하면 닌닌이가 노래를 틀어줍니다.
-\n#재생 [노래이름] -> 닌닌이가 노래를 검색해 틀어줍니다.
-\n#노래끄기 -> 현재 재생중인 노래를 끕니다.
-#일시정지 -> 현재 재생중인 노래를 일시정지시킵니다.
-#다시재생 -> 일시정지시킨 노래를 다시 재생합니다.
-\n#지금노래 -> 지금 재생되고 있는 노래의 제목을 알려줍니다.
-\n#내정보 -> 자신의 프로필사진 , 이름, 아이디 ,가입날짜를 보여줍니다.
-\n#따라하기 -> 닌닌이가 말을 따라합니다.
-\n 버그제보 : 아린#3851
-""", color = 0x00ff00))
-
-@bot.command()
-async def 투표(ctx, *, ox):
-    await ctx.send(embed=discord.Embed(title="찬반투표", description=ox, color= 0x00ff00))
 
 bot.run(token)
