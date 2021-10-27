@@ -3,7 +3,10 @@ asyncio
 sqlite3
 selenium
 FFmpegPCMAudio
-YoutubeDL
+Youtube_dl
 bs4
 pytz
 sqlite3
+pynacl
+beautifulsoup4
+requests
