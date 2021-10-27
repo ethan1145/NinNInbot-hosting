@@ -1,4 +1,4 @@
-
+import os
 import discord
 import asyncio
 import sqlite3
@@ -13,7 +13,6 @@ from selenium.webdriver.chrome.options import Options
 from discord.utils import get
 from discord import FFmpegPCMAudio
 
-token = 'Nzk0MDI4NjUzMTcxMTc5NTMw.X-02zw.wvBgXlQtayPFGvxZYWqCz9cT44U'
 bot = commands.Bot(command_prefix='#')
 @bot.event
 async def on_ready():
@@ -125,5 +124,5 @@ async def 지금노래(ctx):
         await ctx.send(
             embed=discord.Embed(title="지금노래", description="현재 " + entireText + "을(를) 재생하고 있습니다.", color=0x00ff00))
 
-
-bot.run(token)
+access_token = os.environ['BOT_TOKEN']
+bot.run(access_token)
