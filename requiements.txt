@@ -2,7 +2,6 @@ discord.py
 asyncio
 sqlite3
 selenium
-FFmpegPCMAudio
 Youtube_dl
 bs4
 pytz
